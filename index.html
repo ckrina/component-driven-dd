@@ -123,10 +123,65 @@
           </section>
 
           <section>
-            <img src="images/component1.png" />
+          <img src="images/component1.png" />
             <aside class="notes">
-              <h2>What is a component?</h2>
+              <h4>What is a component?</h4>
+              <p>Any pre-defined object usable across multiple pages (widgets or modules)</p>
+            </aside>
+          </section>
+
+          <section>
+          <table>
+            <tr>
+              <td><img src="images/component1.png" /></td>
+              <td style="vertical-align: top; width: 80%; height: 100%;">
+                <pre><code style="word-wrap: break-word; height: 100%;">
+ &lt;!-- Last News component --&gt;
+
+ &lt;div class="last-news"&gt;
+  &lt;h2 class="last-news__title"&gt;
+    Últimas noticias
+  &lt;/h2&gt;
+
+  &lt;ul class="last-news__list"&gt;
+    &lt;li class="last-news__item"&gt;(...)&lt;/li&gt;
+    &lt;li class="last-news__item"&gt;(...)&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;a class="last-news__more"&gt;Ver más&lt;/a&gt;
+ &lt;/div&gt;
+            </code></pre>
+              </td>
+            </tr>
+          </table>
+            <aside class="notes">
               <p>Independent entity with its own meaning</p>
+            </aside>
+          </section>
+
+          <section>
+            <h3>Use components<br> to Make systems modular</h3>
+            <p>For a system to be modular, it must have interchangeable parts.</p>
+            <aside class="notes">
+              <p>Make system modular with components</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>What makes a component modular?</h2>
+            <ul>
+              <li>Standard & shared design</li>
+              <li>Centralized code</li>
+              <li>Controlled via system, not the user</li>
+              <li>Customizable options</li>
+            </ul>
+            <aside class="notes">
+              <ol>
+                <li><small>Appearance predefined & NO vary by page.<strong>Design Foresight/prespectiva</strong></small></li>
+                <li><small>Shared code vs Unique code each time</small></li>
+                <li><small>Author don't decide</small></li>
+              </ol>
+              <p><small>NO tools 4 authors design > provide library of reusable components</small></p>
             </aside>
           </section>
 
@@ -142,6 +197,18 @@
           <section>
             <img src="images/component3.png" />
           </section>
+
+
+          <section>
+            <blockquote cite="http://bradfrost.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">
+            &ldquo;We’re not designing pages, we’re designing systems of components.&rdquo;
+            </blockquote>
+            <p>--Stephen Hay</p>
+            <aside class="notes">
+              <h2>MAIN SLIDE</h2>
+            </aside>
+          </section>
+
 
         </section>
 
@@ -163,16 +230,6 @@
             <p class="fragment" style="opacity:0.7;">
               <small>Typography, layouts and grids, colors, icons, components, coding conventions...</small>
             </p>
-          </section>
-
-          <section>
-            <blockquote cite="http://bradfrost.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/" style="font-size: 1.2em;">
-            &ldquo;We’re not designing pages, we’re designing systems of components.&rdquo;
-            </blockquote>
-            <p>--Stephen Hay</p>
-            <aside class="notes">
-              <h2>MAIN SLIDE</h2>
-            </aside>
           </section>
 
           <section>
@@ -262,7 +319,7 @@
         <section>
           <section>
             <h2>Design</h2>
-            <p class="fragment">Static wireframes  vs  HTML Wireframes</p>
+            <p class="fragment">Static delirables vs  HTML delirables-prototypes</p>
             <aside class="notes">
               <strong>When</strong> should we introduce it in our workflow.<br>
             </aside>
@@ -270,7 +327,7 @@
           <section>
             <h2>Designing in the browser</h2>
             <ul>
-              <li>PSD/ for early planning/research phases</li>
+              <li>PSD for early planning/research phases</li>
               <li>The composition in the browser</li>
               <li>Make decisions in the browser</li>
               <li>Reusable work > Developer will know how do you wnat you output</li>
@@ -284,7 +341,7 @@
           <section>
             <h1>CSS Methodologies</h1>
             <aside class="notes">
-              <p>BEM SMACSS, OOCss</p>
+              <p>BEM SMACSS, OOCSS</p>
               <p>Methodologies for scalable maintainable frontend code</p>
             </aside>
           </section>
