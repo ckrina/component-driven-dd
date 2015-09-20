@@ -264,16 +264,20 @@
 
           </section>
 
-          <section data-background="images/atomic1.png">
+          <section>
+            <img src="images/atomic1.png">
           </section>
 
-          <section data-background="images/atomic2.png">
+          <section>
+            <img src="images/atomic2.png">
           </section>
 
-          <section data-background="images/atomic3.png">
+          <section>
+            <img src="images/atomic3.png">
           </section>
 
-          <section data-background="images/atomic4.png">
+          <section>
+            <img src="images/atomic4.png">
           </section>
 
           <section>
@@ -486,9 +490,32 @@
 
           <section>
             <h2><a href="http://warpspire.com/kss/">KSS (Knyle Style Sheets)</a></h2>
+            <br>
+            <ul>
+              <li>Documentation specification and styleguide format.<br><br></li>
+              <li>Structured to be automatically extracted and processed.</li>
+            </ul>
           </section>
 
           <section>
+            <div style="max-width: 500px; margin: 0 auto; text-align: left;">
+              <ul>
+                <li><small><code>base/</code></small><br></li>
+                <li><small><code>layout/</code></small><br></li>
+                <li><small><code>components/</code></small><br></li>
+                <ul>
+                  <li><small><code>&Tab;pager/</code></small><br></li>
+                  <ul>
+                    <li><small><code>&Tab;&Tab;_pager.scss</code></small><br></li>
+                    <li><small><code>&Tab;&Tab;_pager.hbs</code></small><br></li>
+                  </ul>
+                </ul>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <small><code>_pager.scss</code></small>
             <pre><code style="word-wrap: break-word; font-size: 0.8em; line-height: 1.3em; max-height: none;">// Pager
 //
 // Markup: pager.hbs
@@ -518,6 +545,27 @@
     @extend %pager__item;
   }
 }
+            </code></pre>
+          </section>
+
+          <section>
+            <small><code>_pager.hbs</code></small>
+            <pre><code style="word-wrap: break-word; font-size: 0.8em; line-height: 1.3em; max-height: none;">// Pager
+&lt;ul class="pager {{modifier_class}}"&gt;
+  &lt;li class="pager__item"&gt;
+    &lt;a title="Go to page 1" href="/admin/content">1&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="pager__item"&gt;
+    &lt;a title="Go to page 2" href="/admin/content?page=1">2&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="pager__current-item"&gt;3&lt;/li&gt;
+  &lt;li class="pager__item"&gt;
+    &lt;a title="Go to page 4" href="/admin/content?page=3"&gt;4&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="pager__item"&gt;
+    &lt;a title="Go to page 5" href="/admin/content?page=4"&gt;5&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
             </code></pre>
           </section>
 
@@ -554,6 +602,14 @@
 
           <section>
             <h3>UI components to Drupal components</h3>
+            <ul>
+              <li>Coding</li>
+              <li>Display Suite</li>
+              <li>Panels</li>
+            </ul>
+          </section>
+
+          <section>
             <h2>Coding</h2>
             <ul>
               <li>Field formatter</li>
@@ -563,26 +619,94 @@
             </ul>
           </section>
           <section>
-            <h3>UI components to Drupal components</h3>
             <h2>Display Suite</h2>
             <p>View modes</p>
             <img src="images/ds-layouts.png" />
           </section>
           <section>
-            <h3>UI components to Drupal components</h3>
             <h2>Display Suite</h2>
-            <p>Field templates</p>
+            <p>Field templates (Display Suite extras)</p>
             <img src="images/ds-fields.png" />
           </section>
           <section>
-            <h3>UI components to Drupal components</h3>
             <h2>Panels</h2>
               <ul>
                 <li>Custom Panes</li>
+                <li>Templates for pane</li>
+                <li>Add class to the pane</li>
                 <li>Mini Panels</li>
                 <li>Context</li>
               </ul>
           </section>
+          <section>
+            <h2>Panels</h2><small>Custom Panes (CTools Content Type or Plugin)</small><pre><code style="word-wrap: break-word; font-size: 0.8em; line-height: 1.3em; max-height: none;">&lt;?php
+
+$plugin = array(
+  'single' => TRUE,
+  'title' => t('Menu shortcuts to the themes'),
+  'category' => t('MSF ES: Themes'),
+  'render callback' => 'jumpmenu_themes_render',
+  'admin info' => 'jumpmenu_themes_admin_info',
+);
+
+/**
+ * The 'admin info' callback for panel pane.
+ */
+function jumpmenu_themes_admin_info($subtype, $conf, $contexts) {
+  (...)
+}
+
+/**
+ * Render callback function.
+ */
+function jumpmenu_themes_render($subtype, $conf, $args, $contexts) {
+  (...)
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Panels</h2><small>Custom template for pane</small><pre><code style="word-wrap: break-word; max-height: none;">
+    /**
+     * Implements hook_preprocess_panels_pane().
+     */
+    function mymodule_preprocess_panels_pane(&$variables) {
+
+      switch ($variables['pane']->subtype) {
+        case 'my-pane-name':
+          $variables['template_files'][] = 'panels-pane-test';
+          break;
+      }
+    }
+
+</code></pre>
+        </section>
+        <section>
+            <h2>Panels</h2><small>Custom class</small><pre><code style="word-wrap: break-word; max-height: none;">
+    /**
+     * Implements hook_preprocess_panels_pane().
+     */
+    function mymodule_preprocess_panels_pane(&$variables) {
+
+      switch ($variables['pane']->subtype) {
+        case 'my-pane-name':
+          $classes = 'my-custum-class';
+          $variables['classes_array'][] = $classes;
+          break;
+      }
+    }
+
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Panels</h2><small>Mini-panels</small><br>
+            <img src="images/mini-panel.png" />
+        </section>
+
+        <section>
+            <h2>Panels</h2><small>Context</small><br>
+            <img src="images/panel-context.png" />
         </section>
 
         <!-- 15. Thanks -->
