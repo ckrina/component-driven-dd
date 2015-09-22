@@ -81,10 +81,13 @@
         <section>
           <section>
             <h1>Web projects</h1>
+            <aside class="notes">Let me say a couple of things about web projects</aside>
           </section>
 
           <section data-background="images/waterfall-vs-agile.png">
             <p style="visibility:hidden;">aa</p>
+            <aside class="notes">We know several workflows<br>
+            Agile. You develop a group of features every sprint.</aside>
           </section>
 
           <section data-background="images/maintenance.png">
@@ -163,6 +166,7 @@
             <h3>Use components<br> to Make systems modular</h3>
             <p>For a system to be modular, it must have interchangeable parts.</p>
             <aside class="notes">
+              <h3>Why components are an improvement?</h3>
               <p>Make system modular with components</p>
             </aside>
           </section>
@@ -192,10 +196,12 @@
               <td><img src="images/component2b.png" /></td>
             </tr>
           </table>
+          <aside class="notes">
+              <p>Same component with variations depending on the needs.</p>
           </section>
 
-          <section>
-            <img src="images/component3.png" />
+          <section style="padding: 0;">
+            <img src="images/component3.png" style="margin: 0;"/>
           </section>
 
 
@@ -334,7 +340,7 @@
               <li>PSD for early planning/research phases</li>
               <li>The composition in the browser</li>
               <li>Make decisions in the browser</li>
-              <li>Reusable work > Developer will know how do you wnat you output</li>
+              <li>Reusable work > Developer will know how do you want you output</li>
             </ul>
           </section>
 
@@ -353,15 +359,14 @@
           <section>
             <h2>OOCSS</h2>
             <small>(Object Oriented CSS)</small><br>
+            <p>Based in Object Oriented programming paradigm:</p>
             <ul>
-              <li>Flexible, modular, swappable components that do<br><strong>One Thing Well</strong></li>
-              <li>Focuses on Single Responsibility Principle</li>
+              <li>Do One Thing Well</li>
+              <li>Single Responsibility Principle<br><small>(1 responsability = 1 class)</small></li>
               <li>Focuses on Separation of Concerns(SoC)</li>
             </ul>
             <aside class="notes">
-              <small><strong>Is a programming paradigm.</strong></small><br>
-              <small>1. Every class should have responsibility over 1 single part of the functionality, and that responsibility should be encapsulated by the class.</small><br>
-              <small>2. Is a design principle for separating a "the code" into different sections/concerns</small>
+              <small>3. Is a design principle for separating a "the code" into different sections/concerns</small>
             </aside>
           </section>
 
@@ -371,9 +376,8 @@
             <pre><code style="word-wrap: break-word;">
     /* Media Object */
     .media {}
-    .media .img {}
-    .media .img img {}
-    .media .imgExt {}
+    .media .image {}
+    .media .comment {}
             </code></pre>
 
           </section>
@@ -405,31 +409,10 @@
       </code></pre>
           </section>
 
-          <section>
-            <h2>BEM</h2>
-            <small>(Block Element Modifier)</small>
-      <pre><code style="word-wrap: break-word;">
-          &lt;div class="block-name--big"&gt;
-            &lt;h2 class="block-name__title"&gt;Block title&lt;/h2&gt;
-            &lt;p class="block-name__text"&gt;Block text&lt;/p&gt;
-          &lt;/div&gt;
-      </code></pre>
-          </section>
-
          <section>
             <h2>SMACSS</h2>
-            <ul>
-              <li>Base</li>
-              <li>Layout</li>
-              <li>Module (Components)</li>
-              <li>State</li>
-              <li>Theme</li>
-            </ul>
-            <aside class="notes">It is more like a “style guide” than a rigid CSS framework</aside>
-          </section>
-
-          <section>
             <img src="images/smacss-structure.png" />
+            <aside class="notes">It is more like a “style guide” than a rigid CSS framework</aside>
           </section>
         </section>
 
@@ -459,7 +442,7 @@
               <li>Makes Testing easier</li>
             </ul>
             <aside class="notes">
-              <small>1.Components should be styled or displayed consistently. If a user clicks on a button and get served up a modal or lightbox, ideally they should get that same experience across the site.</small></br>
+              <small>1.Pop-up example.</small></br></br>
               <small>3.With detailed wireframes and a front-end style guide > spend less time in Photoshop and focus on interactions</small>
             </aside>
           </section>
@@ -516,7 +499,7 @@
 
           <section>
             <small><code>_pager.scss</code></small>
-            <pre><code style="word-wrap: break-word; font-size: 0.8em; line-height: 1.3em; max-height: none;">// Pager
+            <pre><code style="word-wrap: break-word; max-height: none;">// Pager
 //
 // Markup: pager.hbs
 //
@@ -524,26 +507,8 @@
 
 .pager,
 %pager {
-  clear: both;
   margin: 0;
-  padding: 0;
-  text-align: center;
-
-  // A page item in the pager list.
-  &__item {
-    @include adjust-font-size-to(12px);
-    display: inline;
-    padding: 0 .5em;
-    border-right: solid 1px color(grey-dark);
-    list-style-type: none;
-    background-image: none;
-    color: color(grey-dark);
-  }
-
-  // The current page's list item.
-  &__current-item {
-    @extend %pager__item;
-  }
+  // All the styles here.
 }
             </code></pre>
           </section>
@@ -584,16 +549,10 @@
         <section>
           <section>
             <h1>In Drupal</h1>
-
-
-            <!--- Design systems can align with Drupal objects.</p>-->
-            <!-- Can take this approach with existing designs -->
-            <!--<p>First step - draw boxes around elements.</p>
-            <p>Define them in a drupal agnostic way. Later align them with Drupal elements.</p>-->
             <aside class="notes">How we dot it in Drupal</aside>
           </section>
           <section>
-            <h2>Adapt to agnostic Style Guides</h2>
+            <h2>General approaches</h2>
             <ol>
               <li>Wrapping components</li>
               <li>Changing default markup</li>
@@ -601,20 +560,27 @@
           </section>
 
           <section>
-            <h3>UI components to Drupal components</h3>
+            <h3>Our components to Drupal components</h3>
             <ul>
-              <li>Coding</li>
+              <li>In code</li>
               <li>Display Suite</li>
               <li>Panels</li>
             </ul>
           </section>
 
           <section>
-            <h2>Coding</h2>
+            <h2>In code</h2>
             <ul>
               <li>Field formatter</li>
-              <li><code>hook_alter</code></li>
               <li>Process and preprocess functions</li>
+              <li><code>hook_(...)_alter</code>
+                <ul>
+                  <li>hook_page_alter()</li>
+                  <li>hook_form_alter()</li>
+                  <li>hook_node_view_alter()</li>
+                  <li>(...)</li>
+                </ul>
+              </li>
               <li>...</li>
             </ul>
           </section>
